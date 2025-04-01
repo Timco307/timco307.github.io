@@ -1,1 +1,92 @@
-Hello this is just for fun
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroNet: Your Gateway to Dial-Up Revival</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", sans-serif;
+            background-color: #000000;
+            color: lime;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.publicdomainpictures.net/pictures/320000/velka/stars-in-the-night.jpg');
+            background-size: cover;
+        }
+        h1 {
+            color: cyan;
+            text-shadow: 2px 2px purple;
+            margin-top: 50px;
+        }
+        p {
+            color: yellow;
+            font-size: 18px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 30px;
+            background-color: #ff69b4;
+            color: white;
+            border: 3px solid purple;
+            border-radius: 5px;
+            cursor: pointer;
+            text-shadow: 1px 1px black;
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+        .status {
+            color: cyan;
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 50px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>RetroNet</h1>
+    <p>Reconnect with the internet like it’s 1999! Relive the glorious *modem symphony* below.</p>
+
+    <button id="dialUpButton">Experience Dial-Up Connection</button>
+    <audio id="dialUpSound" src="your-dial-up-sound-file.mp3" preload="auto"></audio>
+    <audio id="daDingSound" src="your-da-ding-sound-file.mp3" preload="auto"></audio>
+    <div class="status" id="statusMessage"></div>
+
+    <script>
+        document.getElementById("dialUpButton").addEventListener("click", function() {
+            alert("For the full experience, make sure your sound is turned all the way up and you're connected to Wi-Fi!");
+            
+            const dialUpSound = document.getElementById("dialUpSound");
+            const statusMessage = document.getElementById("statusMessage");
+
+            // Play the dial-up sound first
+            dialUpSound.play();
+
+            // Wait for dial-up sound to finish, then start the random delay
+            dialUpSound.onended = () => {
+                statusMessage.textContent = "Please wait, connecting...";
+                
+                // Generate a random delay between 5 and 10 seconds
+                const randomDelay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
+
+                setTimeout(() => {
+                    statusMessage.textContent = "Connected!";
+                    const daDingSound = document.getElementById("daDingSound");
+                    daDingSound.play();
+                }, randomDelay);
+            };
+        });
+    </script>
+
+    <footer>
+        &copy; 2025 RetroNet | <span style="color: cyan;">Proudly Bringing the 90s Back to Life</span>
+    </footer>
+</body>
+</html>
